@@ -11,14 +11,13 @@ const MyVerticallyCenteredModal = React.memo(function MyModal(props) {
   
   // console.log(...list)
   useEffect(() => {
-    const { food, setSum } = props;
     // Calculate the total sum by iterating through the items in props.food
     const totalSum = props.food.reduce((acc, item) => {
       return acc + parseInt(item.price) * item.quantity;
     }, 0);
 
-    setSum(totalSum);
-  }, [props.food,props.setSum]);
+    props.setSum(totalSum);
+  }, [props]);
   return (
     <Modal
       {...props}
@@ -44,7 +43,7 @@ const MyVerticallyCenteredModal = React.memo(function MyModal(props) {
             ))
           :
           <div>
-            <img src={require('../image/empty.png')} alt="" width="100px" height="70px"/>
+            <img src={require('../image/empty.png')} alt="" width="150px" height="100px" />
           </div>
           }
           </ul>
