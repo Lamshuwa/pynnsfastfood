@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import plate from '../image/plate3.png'
-import { ToastContainer, toast } from 'react-toastify';
+import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 // Create a memoized version of the MyVerticallyCenteredModal component
 
@@ -11,13 +11,14 @@ const MyVerticallyCenteredModal = React.memo(function MyModal(props) {
   
   // console.log(...list)
   useEffect(() => {
+    const { food, setSum } = props;
     // Calculate the total sum by iterating through the items in props.food
     const totalSum = props.food.reduce((acc, item) => {
       return acc + parseInt(item.price) * item.quantity;
     }, 0);
 
-    props.setSum(totalSum);
-  }, [props.food]);
+    setSum(totalSum);
+  }, [props.food,props.setSum]);
   return (
     <Modal
       {...props}
@@ -81,8 +82,14 @@ export default function ListModal({ food, setFood ,isShaking}) {
   const date=new Date();
   const stringWithoutExample = JSON.stringify(newArray).replace(/[{"}]/g, '');
   console.log(stringWithoutExample)
-  const message = encodeURIComponent("Name:"+name+"\n"+"Date:"+date+"\n"+stringWithoutExample+"\n"+"Total price:"+sum);
-  const phoneNumber = '917640884453'; //Optionally, you can specify a phone number.
+ // const message = encodeURIComponent("Name:"+name+"\n"+"Date:"+date+"\n"+stringWithoutExample+"\n"+"Total price:"+sum);
+ const message = encodeURIComponent(
+  `Name: ${name}\n` +
+  `Date: ${date}\n` +
+  `${stringWithoutExample}\n`+
+  `Total price: ${sum}`
+)
+ const phoneNumber = '917640884453'; //Optionally, you can specify a phone number.
 
   const whatsappLink = `https://wa.me/${phoneNumber}?text=${message}`;
 
