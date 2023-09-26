@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 // Create a memoized version of the MyVerticallyCenteredModal component
 
 const MyVerticallyCenteredModal = React.memo(function MyModal(props) {
-  const [list, setList] = useState(props.food)
+  //const [list, setList] = useState(props.food)
   
   // console.log(...list)
   useEffect(() => {
@@ -35,7 +35,7 @@ const MyVerticallyCenteredModal = React.memo(function MyModal(props) {
         {
           <ul>
             {
-            props.food.length!=0?
+            props.food.length!==0?
             props.food.map((item) => (
               <>
               <li key={item.id}>{item.item}-{item.quantity} half <img onClick={()=>props.handleDelete(item.id)}src={require('../image/delete.png')} alt="" width="25px" height="25px"/></li>
@@ -105,7 +105,7 @@ export default function ListModal({ food, setFood ,isShaking}) {
     }  
   }
   const handleDelete=(id)=>{
-    const filteredDelete=food.filter((l)=>(l.id!=id))
+    const filteredDelete=food.filter((l)=>(l.id!==id))
     setFood(filteredDelete)
   
   }

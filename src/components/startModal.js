@@ -1,14 +1,13 @@
 
 import React from 'react'
 import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import helpModal from '../image/helpModal.jpg'
 export default function StartModal() {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+   // const handleShow = () => setShow(true);
   return (
     <div>
 

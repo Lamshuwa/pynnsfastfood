@@ -1,22 +1,20 @@
 import React, { useState, useEffect, useRef } from 'react'
 import './home.css'
 import image from '../image/logo.jpg'
-import src from '../image/search.png'
-import { items } from './items'
+//import { items } from './items'
 import { itemsprice } from './itmesprice'
 import Footer from './footer'
 import AddModal from './addModal'
 import ListModal from './listModal'
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import CustomToast from './CustomToast'
+//import CustomToast from './CustomToast'
 import StartModal from './startModal'
 
 export default function Home() {
     const [food, setFood] = useState([])
     const [filter, setFilter] = useState('AL')
     const [search, setSearch] = useState('')
-    const [isTourOpen, setIsTourOpen] = useState(false);
 
 
     const filteredItems = itemsprice.filter((item) => {
