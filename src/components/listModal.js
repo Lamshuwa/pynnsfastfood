@@ -56,6 +56,13 @@ const MyVerticallyCenteredModal = React.memo(function MyModal(props) {
         style={{border:props.nameError&&'2px solid red'}}
         />
       </div>
+      <div className="packing">
+      <input type="checkbox" className="packingCheckbox" 
+      check={props.packing} onChange={e=>props.setPacking(e.target.checked)}
+      />
+      <span className="packingSpan">Take Away?</span>
+      </div>
+     
         <div>
           Total Price(Excluding Packing):Rs.{props.sum}
         </div>
@@ -77,17 +84,33 @@ export default function ListModal({ food, setFood ,isShaking,vibrate}) {
   const newArray = food.map(({ id,price, ...food }) => food);
   const [name,setName]=useState('')
   const [sum,setSum]=useState(0)
+  const [packing,setPacking]=useState(false)
   const [nameError,setNameError]=useState(false)
   const date=new Date();
   const stringWithoutExample = JSON.stringify(newArray).replace(/[{"}]/g, '');
   console.log(stringWithoutExample)
+
+  function formatDateTo12HourFormat(date) {
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    const formattedHours = hours % 12 || 12; // Convert 0 to 12 for 12-hour format
+  
+    const formattedDate = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
+    const formattedTime = `${formattedHours}:${String(minutes).padStart(2, '0')} ${ampm}`;
+  
+    return `${formattedDate} ${formattedTime}`;
+  }
+  const formattedDateTime = formatDateTo12HourFormat(date);
  // const message = encodeURIComponent("Name:"+name+"\n"+"Date:"+date+"\n"+stringWithoutExample+"\n"+"Total price:"+sum);
  const message = encodeURIComponent(
   `Name: ${name}\n` +
-  `Date: ${date}\n` +
+  `Date: ${formattedDateTime}\n` +
   `${stringWithoutExample}\n`+
-  `Total price: ${sum}`
+  `Total price: ${sum}\n`+
+  `Packing: ${packing}`
 )
+
  const phoneNumber = '917640884453'; //Optionally, you can specify a phone number.
 
   const whatsappLink = `https://wa.me/${phoneNumber}?text=${message}`;
@@ -106,7 +129,7 @@ export default function ListModal({ food, setFood ,isShaking,vibrate}) {
     } 
     else
     {
-      console.log(newArray)
+      console.log(packing)
       window.open(whatsappLink)
     }  
   }
@@ -139,6 +162,8 @@ export default function ListModal({ food, setFood ,isShaking,vibrate}) {
            nameError={nameError}
            setSum={setSum}
            sum={sum}
+           packing={packing}
+           setPacking={setPacking}
         />
       )}
     </div>

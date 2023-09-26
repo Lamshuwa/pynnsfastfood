@@ -289,4 +289,16 @@ li{
   .foodItem:hover{
     transform:scale(1.1);
   }
-  
+  .packing{
+    display:flex;
+    gap:5px;
+    padding:7px 0px 7px 0px;
+  }
+  .packingCheckbox{
+    width: 20px;
+    height: 20px;
+  }
+  .packingSpan{
+    margin-top:-6px;
+    font-size:20px;
+  }
