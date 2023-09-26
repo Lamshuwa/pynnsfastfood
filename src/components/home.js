@@ -43,12 +43,25 @@ export default function Home() {
             setIsShaking(false);
         }, 2000);
     };
+
+
+        // Function to trigger the vibration
+        const vibrate = () => {
+          if ('vibrate' in navigator) {
+            // Use the Vibration API if available
+            navigator.vibrate([100, 50]); // Vibrate for 200ms, pause for 100ms, vibrate for 200ms
+          } else {
+            // Fallback for browsers that don't support the Vibration API
+            console.warn("Vibration is not supported in this browser.");
+          }
+        };
+    
     return (
         <div className="menuBody">
             <StartModal></StartModal>
             <ToastContainer></ToastContainer>
             <div className="logo">
-                <img src={image} alt="" />
+                <img src={image} alt="" onClick={vibrate}/>
             </div>
             <div className="hr">
                 <div className="menu">Order Your Food Online</div>
@@ -74,7 +87,7 @@ export default function Home() {
                 </div> */}
                 <br />
 
-                <ListModal food={food} setFood={setFood} isShaking={isShaking}></ListModal>
+                <ListModal food={food} setFood={setFood} isShaking={isShaking} vibrate={vibrate}></ListModal>
 
                 <div className="item">
                     <div>
@@ -116,7 +129,7 @@ export default function Home() {
                                     <tr key={index}>
                                         <td>
                                             <AddModal name={l.name} price={l.price} food={food} setFood={setFood} id={index + 1}
-                                                toggleShaking={toggleShaking}
+                                                toggleShaking={toggleShaking} vibrate={vibrate}
                                             ></AddModal>{' '}
                                         </td>
                                         <td>{l.price}</td>

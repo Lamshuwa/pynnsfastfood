@@ -54,7 +54,7 @@ const MyVerticallyCenteredModal = React.memo(function MyModal(props) {
   );
 });
 
-export default function AddModal({ name, food, setFood, id,price ,toggleShaking}) {
+export default function AddModal({ name, food, setFood, id,price ,toggleShaking,vibrate}) {
   const [modalShow, setModalShow] = useState(false);
   const [counter, setCounter] = useState(1);
 
@@ -75,6 +75,7 @@ export default function AddModal({ name, food, setFood, id,price ,toggleShaking}
     setFood([...food, newItem]);
     toggleShaking()
     setModalShow(false)
+    vibrate()
   }
 
   return (

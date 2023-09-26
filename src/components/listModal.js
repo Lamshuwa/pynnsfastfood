@@ -72,7 +72,7 @@ const MyVerticallyCenteredModal = React.memo(function MyModal(props) {
   );
 });
 
-export default function ListModal({ food, setFood ,isShaking}) {
+export default function ListModal({ food, setFood ,isShaking,vibrate}) {
   const [modalShow, setModalShow] = useState(false);
   const newArray = food.map(({ id,price, ...food }) => food);
   const [name,setName]=useState('')
@@ -120,7 +120,7 @@ export default function ListModal({ food, setFood ,isShaking}) {
   return (
     <div>
       <div style={{ cursor: 'pointer' }} onClick={() => setModalShow(true)}>
-        <div className="burger" id={isShaking?"shake":""}>
+        <div className="burger" id={isShaking?"shake":""} >
           <img src={plate} alt="" width="60px" height="60px"/>
           {/* <button onClick={asd}>View List</button> */}
         </div>
