@@ -60,11 +60,13 @@ export default function AddModal({ name, food, setFood, id,price ,toggleShaking,
 
   const incrementCounter = () => {
     setCounter(counter + 1);
+    vibrate();
   };
 
   const decrementCounter = () => {
     if (counter > 1) {
       setCounter(counter - 1);
+      vibrate();
     }
   };
 
@@ -94,6 +96,7 @@ export default function AddModal({ name, food, setFood, id,price ,toggleShaking,
           decrement={decrementCounter}
           handleAdd={handleAdd}
           price={price}
+          vibrate={vibrate}
         />
       )}
     </div>

@@ -113,7 +113,7 @@ export default function ListModal({ food, setFood ,isShaking,vibrate}) {
   const handleDelete=(id)=>{
     const filteredDelete=food.filter((l)=>(l.id!==id))
     setFood(filteredDelete)
-  
+  vibrate();
   }
 
 

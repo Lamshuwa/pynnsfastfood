@@ -15,7 +15,7 @@ export default function Home() {
     const [food, setFood] = useState([])
     const [filter, setFilter] = useState('AL')
     const [search, setSearch] = useState('')
-
+  
 
     const filteredItems = itemsprice.filter((item) => {
         return filter === 'AL' || item.name.toLowerCase().includes(filter.toLowerCase());
@@ -49,7 +49,7 @@ export default function Home() {
         const vibrate = () => {
           if ('vibrate' in navigator) {
             // Use the Vibration API if available
-            navigator.vibrate([100, 50]); // Vibrate for 200ms, pause for 100ms, vibrate for 200ms
+            navigator.vibrate([50, 50]); // Vibrate for 200ms, pause for 100ms, vibrate for 200ms
           } else {
             // Fallback for browsers that don't support the Vibration API
             console.warn("Vibration is not supported in this browser.");
@@ -91,7 +91,7 @@ export default function Home() {
 
                 <div className="item">
                     <div>
-                        <table focus="true">
+                        <table>
                             <tr style={{ fontSize: '25px', borderBottom: '1px solid white' }}>
                                 <th id="thItem">Menu</th>
                                 <th>Price</th>
@@ -126,7 +126,7 @@ export default function Home() {
                                     itemsprice.name.toLowerCase().includes(search.toLowerCase().trim())
                                 )
                                 .map((l, index) => (
-                                    <tr key={index}>
+                                    <tr key={index} >
                                         <td>
                                             <AddModal name={l.name} price={l.price} food={food} setFood={setFood} id={index + 1}
                                                 toggleShaking={toggleShaking} vibrate={vibrate}

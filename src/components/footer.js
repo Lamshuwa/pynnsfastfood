@@ -10,7 +10,7 @@ export default function Footer() {
   }
   return (
     <div className="footer">
-      <div>Made By LMK</div>
+      <div>Made By Lp</div>
       <div className="footerItem">
         <div>
           <img className="social" src={require('../image/whatsapp.png')} alt="" width="40px" height="40px" onClick={handleWhatsapp}/>
