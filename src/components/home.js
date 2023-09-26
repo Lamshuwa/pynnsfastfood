@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import './home.css'
 import image from '../image/logo.jpg'
+import src from '../image/search.png'
 import { items } from './items'
 import { itemsprice } from './itmesprice'
 import Footer from './footer'
@@ -55,7 +56,7 @@ export default function Home() {
                 <div className="menu">Order Your Food Online</div>
                 <div className="search">
                     {/* <span className="searchIcon">
-                        <img src={search} alt="" />
+                        <img src={src} alt="" />
                     </span> */}
                     <input type="search" placeholder="Search.." value={search} onChange={e => setSearch(e.target.value)} />
                 </div>

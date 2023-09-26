@@ -79,7 +79,7 @@ export default function AddModal({ name, food, setFood, id,price ,toggleShaking}
 
   return (
     <div>
-      <div style={{ cursor: 'pointer' }} onClick={() => setModalShow(true)}>
+      <div className="foodItem" style={{ cursor: 'pointer' }} onClick={() => setModalShow(true)}>
         {name}
       </div>
 
