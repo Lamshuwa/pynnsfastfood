@@ -73,6 +73,7 @@ const MyVerticallyCenteredModal = React.memo(function MyModal(props) {
         (Note that if the message is empty, you can go back to your online menu and resubmit your order) 
         <Button variant="danger" onClick={props.handleShare}>
           Place Order
+          <img src={require('../image/whatsapp.png')} alt="" width="25px" className="whatsapp"/>
         </Button>
       </Modal.Footer>
     </Modal>
@@ -108,7 +109,8 @@ export default function ListModal({ food, setFood ,isShaking,vibrate}) {
   `Date: ${formattedDateTime}\n` +
   `${stringWithoutExample}\n`+
   `Total price: ${sum}\n`+
-  `Packing: ${packing}`
+  //`Packing: ${packing}`
+  `${packing ? `(Packing)` : ''}`
 )
 
  const phoneNumber = '917640884453'; //Optionally, you can specify a phone number.

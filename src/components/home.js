@@ -15,10 +15,9 @@ export default function Home() {
     const [food, setFood] = useState([])
     const [filter, setFilter] = useState('AL')
     const [search, setSearch] = useState('')
-  
 
     const filteredItems = itemsprice.filter((item) => {
-        return filter === 'AL' || item.name.toLowerCase().includes(filter.toLowerCase());
+        return filter === 'AL' || item.type.toLowerCase().includes(filter.toLowerCase());
     });
     console.log(food)
     // useEffect(() => {
@@ -31,7 +30,8 @@ export default function Home() {
     useEffect(() => {
         setFilter('AL')
     }, [search])
-
+   
+  
 
     const [isShaking, setIsShaking] = useState(false);
 
@@ -45,23 +45,23 @@ export default function Home() {
     };
 
 
-        // Function to trigger the vibration
-        const vibrate = () => {
-          if ('vibrate' in navigator) {
+    // Function to trigger the vibration
+    const vibrate = () => {
+        if ('vibrate' in navigator) {
             // Use the Vibration API if available
             navigator.vibrate([50, 50]); // Vibrate for 200ms, pause for 100ms, vibrate for 200ms
-          } else {
+        } else {
             // Fallback for browsers that don't support the Vibration API
             console.warn("Vibration is not supported in this browser.");
-          }
-        };
-    
+        }
+    };
+
     return (
         <div className="menuBody">
             <StartModal></StartModal>
             <ToastContainer></ToastContainer>
             <div className="logo">
-                <img src={image} alt="" onClick={vibrate}/>
+                <img src={image} alt="" onClick={vibrate} />
             </div>
             <div className="hr">
                 <div className="menu">Order Your Food Online</div>
@@ -73,12 +73,16 @@ export default function Home() {
                 </div>
                 <div className="filter">
                     <span className="filterText">filter</span>
-                    <select name="filter" id="" value={filter} onChange={e => setFilter(e.target.value)}>
+                    <select name="filter" id="" value={filter} onChange={e => {
+                        setFilter(e.target.value)
+                    }}>
                         <option value="">All items</option>
                         <option value="chow">Chow</option>
                         <option value="rice">Fried Rice</option>
                         <option value="momo">Momo</option>
                         <option value="soup">Soup</option>
+                        <option value="chicken">Chicken Item</option>
+                        <option value="pork">Pork Item</option>
                     </select>
 
                 </div>
