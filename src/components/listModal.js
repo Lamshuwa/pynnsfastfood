@@ -25,7 +25,7 @@ const MyVerticallyCenteredModal = React.memo(function MyModal(props) {
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-      <Modal.Header closeButton>
+      <Modal.Header closeButton style={{backgroundColor:'rgba(231, 181, 181, 0.311)'}}>
         <Modal.Title id="contained-modal-title-vcenter">
           Your Item
         </Modal.Title>
@@ -67,7 +67,7 @@ const MyVerticallyCenteredModal = React.memo(function MyModal(props) {
           Total Price(Excluding Packing):Rs.{props.sum}
         </div>
       </Modal.Body>
-      <Modal.Footer>
+      <Modal.Footer style={{backgroundColor:'rgba(231, 181, 181, 0.311)'}}>
         *Once you click this button it will redirect you to Whatsapp
         .You can proceed the order by sharing the message with us.
         (Note that if the message is empty, you can go back to your online menu and resubmit your order) 

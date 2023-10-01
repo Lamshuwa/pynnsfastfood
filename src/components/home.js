@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './home.css'
 import image from '../image/logo.jpg'
 //import { items } from './items'
@@ -25,11 +25,11 @@ export default function Home() {
     //         toast.success(<CustomToast message="Item Added to List Click on the plate to place order" />);
     //     }
     // }, [food])
-    console.log(food.length)
+    // console.log(food.length)
 
-    useEffect(() => {
-        setFilter('AL')
-    }, [search])
+    // useEffect(() => {
+    //     setFilter('AL')
+    // }, [search])
    
   
 
@@ -80,9 +80,18 @@ export default function Home() {
                         <option value="chow">Chow</option>
                         <option value="rice">Fried Rice</option>
                         <option value="momo">Momo</option>
+                        <option value="wanton">Wanton</option>
                         <option value="soup">Soup</option>
+                        <option value="sp">SoupChow</option>
+                        <option value="cm">Chowmein</option>
+                        <option value="cp">Chopsuey</option>
+                        <option value="roll">Roll</option>
+                        <option value="aluchop">Aluchop</option>
+                        <option value="pakora">Pakora</option>
                         <option value="chicken">Chicken Item</option>
                         <option value="pork">Pork Item</option>
+                        <option value="extra">Extra</option>
+                        <option value="bev">Beverages</option>
                     </select>
 
                 </div>
@@ -130,14 +139,149 @@ export default function Home() {
                                     itemsprice.name.toLowerCase().includes(search.toLowerCase().trim())
                                 )
                                 .map((l, index) => (
+                                    <>
+                                    {
+                                        l.type==="chow"&&index===0&&
+                                        <tr className="tableHead">
+                                            <td >Chow</td>
+                                            <td></td>
+                                        </tr>
+                                    }
+                                    {
+                                        l.type==="momo"&&index===17&&
+                                        <tr className="tableHead">
+                                            <td >Momo</td>
+                                            <td></td>
+                                        </tr>
+                                    }
+                                    {
+                                        l.type==="wanton"&&index===22&&
+                                        <tr className="tableHead">
+                                            <td >Wanton</td>
+                                            <td></td>
+                                        </tr>
+                                    }{
+                                        l.type==="soup"&&index===31&&
+                                        <tr className="tableHead">
+                                            <td >Soup</td>
+                                            <td></td>
+                                        </tr>
+                                    }
+                                    {
+                                        l.type==="soupchow"&&index===43&&
+                                        <tr className="tableHead">
+                                            <td >Soup Chow</td>
+                                            <td></td>
+                                        </tr>
+                                    }
+                                    {
+                                        l.type==="rice"&&index===50&&
+                                        <tr className="tableHead">
+                                            <td >Fried Rice</td>
+                                            <td></td>
+                                        </tr>
+                                    }
+                                    {
+                                        l.type==="aluchop"&&index===70&&
+                                        <tr className="tableHead">
+                                            <td >Aluchop</td>
+                                            <td></td>
+                                        </tr>
+                                    }
+                                    {
+                                        l.type==="cp"&&index===71&&
+                                        <tr className="tableHead">
+                                            <td >Chopsuey</td>
+                                            <td></td>
+                                        </tr>
+                                    }
+                                    {
+                                        l.type==="cm"&&index===78&&
+                                        <tr className="tableHead">
+                                            <td >Chowmein</td>
+                                            <td></td>
+                                        </tr>
+                                    }
+                                    {
+                                        l.type==="roll"&&index===87&&
+                                        <tr className="tableHead">
+                                            <td >Roll</td>
+                                            <td></td>
+                                        </tr>
+                                    }
+                                    {
+                                        l.type==="cutlet"&&index===95&&
+                                        <tr className="tableHead">
+                                            <td >Cutlet</td>
+                                            <td></td>
+                                        </tr>
+                                    }
+                                    {
+                                        l.type==="pakora"&&index===97&&
+                                        <tr className="tableHead">
+                                            <td >Pakora</td>
+                                            <td></td>
+                                        </tr>
+                                    }
+                                    {
+                                        l.type==="chicken"&&index===100&&
+                                        <tr className="tableHead">
+                                            <td >Chicken Dish</td>
+                                            <td></td>
+                                        </tr>
+                                    }
+                                    {
+                                        l.type==="pork"&&index===111&&
+                                        <tr className="tableHead">
+                                            <td >Pork Dish</td>
+                                            <td></td>
+                                        </tr>
+                                    }
+                                    {
+                                        l.type==="maggie"&&index===115&&
+                                        <tr className="tableHead">
+                                            <td >Maggie</td>
+                                            <td></td>
+                                        </tr>
+                                    }
+                                    {
+                                        l.type==="waiwai"&&index===118&&
+                                        <tr className="tableHead">
+                                            <td >WaiWai</td>
+                                            <td></td>
+                                        </tr>
+                                    }
+                                    {
+                                        l.type==="ramen"&&index===121&&
+                                        <tr className="tableHead">
+                                            <td >Ramen</td>
+                                            <td></td>
+                                        </tr>
+                                    }
+                                    {
+                                        l.type==="extra"&&index===124&&
+                                        <tr className="tableHead">
+                                            <td >Extra</td>
+                                            <td></td>
+                                        </tr>
+                                    }
+                                    {
+                                        l.type==="bev"&&index===125&&
+                                        <tr className="tableHead">
+                                            <td >Beverages</td>
+                                            <td></td>
+                                        </tr>
+                                    }
                                     <tr key={index} >
+                                       
                                         <td>
-                                            <AddModal name={l.name} price={l.price} food={food} setFood={setFood} id={index + 1}
+                                            <AddModal no={index} name={l.name} price={l.price} food={food} setFood={setFood} id={index + 1}
                                                 toggleShaking={toggleShaking} vibrate={vibrate}
                                             ></AddModal>{' '}
                                         </td>
                                         <td>{l.price}</td>
                                     </tr>
+                                    </>
                                 ))}
                         </table>
 

@@ -37,7 +37,8 @@
 }
 .hr{
     height:auto;
-    background-color:#f55a3f;
+    /* background-color:#f55a3f; */
+    background-color:#DE515A;
     min-height:70vh;
     padding-bottom:30px;
     /* background-color:black; */
@@ -145,7 +146,7 @@
     #thItem{
         /* color:red; */
         /* min-width:200px; */
-        width:220px;
+        width:260px;
     }
   }
   /* .menuBody{
@@ -178,6 +179,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    border-radius: 10px;
   }
 
 .modalBtn{
@@ -304,4 +306,10 @@ li{
   }
   .whatsapp{
    margin:-5px 0px 0px 3px;
+  }
+  .tableHead{
+    font-size:25px;
+    color:rgb(227, 227, 227);
+    background-color:rgba(231, 181, 181, 0.311);
+    
   }

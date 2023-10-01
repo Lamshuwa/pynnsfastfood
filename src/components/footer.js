@@ -8,6 +8,9 @@ export default function Footer() {
     window.open('https://instagram.com/pynns.fast.food?igshid=MzRlODBiNWFlZA==')
 
   }
+  const handleEmail=()=>{
+    window.open(`mailto:lamshuwamanbha@gmail.com`)
+  }
   return (
     <div className="footer">
       <div>Made By Lp</div>
@@ -16,7 +19,9 @@ export default function Footer() {
           <img className="social" src={require('../image/whatsapp.png')} alt="" width="40px" height="40px" onClick={handleWhatsapp}/>
           <img className="social" src={require('../image/instagram.png')} alt="" width="40px" height="40px" onClick={handleInsta}/>
         </div>
-      <div>lamshuwamanbha@gmail.com</div>
+      <div onClick={handleEmail}
+      style={{cursor:'pointer'}}
+      >lamshuwamanbha@gmail.com</div>
       </div>
     </div>
   )
