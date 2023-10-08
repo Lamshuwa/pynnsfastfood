@@ -43,7 +43,7 @@ const MyVerticallyCenteredModal = React.memo(function MyModal(props) {
             ))
           :
           <div>
-            <img src={require('../image/empty.png')} alt="" width="150px" height="100px" />
+            <img src={require('../image/emptycom.png')} alt="" width="150px" height="100px" />
           </div>
           }
           </ul>
