@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import './home.css'
 import image from '../image/logo.jpg'
 //import { items } from './items'
@@ -27,9 +27,9 @@ export default function Home() {
     // }, [food])
     // console.log(food.length)
 
-    // useEffect(() => {
-    //     setFilter('AL')
-    // }, [search])
+    useEffect(() => {
+        setFilter('AL')
+    }, [search])
    
   
 
@@ -86,8 +86,11 @@ export default function Home() {
                         <option value="cm">Chowmein</option>
                         <option value="cp">Chopsuey</option>
                         <option value="roll">Roll</option>
+                        <option value="cutlet">Cutlet</option>
                         <option value="aluchop">Aluchop</option>
                         <option value="pakora">Pakora</option>
+                        <option value="maggie">Maggie</option>
+                        <option value="waiwai">WaiWai</option>
                         <option value="chicken">Chicken Item</option>
                         <option value="pork">Pork Item</option>
                         <option value="extra">Extra</option>
@@ -168,7 +171,7 @@ export default function Home() {
                                         </tr>
                                     }
                                     {
-                                        l.type==="soupchow"&&index===43&&
+                                        l.type==="sp"&&index===43&&
                                         <tr className="tableHead">
                                             <td >Soup Chow</td>
                                             <td></td>
